@@ -1,0 +1,26 @@
+<div class="container">
+  <mat-card>
+    <mat-card-title>Login</mat-card-title>
+
+    <mat-card-content>
+
+      <form class="form" ngNativeValidate #f="ngForm" (ngSubmit)="onSubmit()">
+        <mat-form-field class="full-width">
+          <mat-label>Email</mat-label>
+          <input [(ngModel)]="login.email" name="email"  type="email" matInput placeholder="Ex. example@example.com" required>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <mat-label>Password</mat-label>
+          <input [(ngModel)]="login.password" name="password" type="password" matInput placeholder="Ex. a587f88afwa" required>
+        </mat-form-field>
+        <br>
+        <div class="buttons">
+          <button mat-raised-button type="submit" color="primary">Login</button>
+          <button mat-button [routerLink]="['/register']" type="button" color="primary">Register</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+

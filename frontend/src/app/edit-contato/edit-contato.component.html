@@ -1,0 +1,38 @@
+<div class="container">
+  <mat-card>
+    <mat-card-title>Create contato</mat-card-title>
+
+    <mat-card-content>
+
+      <form class="form"  #createForm="ngForm" (ngSubmit)="onSubmit()">
+        <mat-form-field class="full-width">
+          <mat-label>Nome</mat-label>
+          <input class="form-control" #nome="ngModel" [(ngModel)]="contato.nome" name="nome"  type="text" matInput placeholder="Ex. Daniel" required>
+        </mat-form-field>
+
+        <div *ngIf="nome.invalid && (nome.dirty || nome.touched)" class="alert" >
+          <div *ngIf="nome.errors?.required" class="alert validation-color">
+            nome is required
+          </div>
+        </div>
+
+        <mat-form-field class="full-width">
+          <mat-label>Telefone</mat-label>
+          <input class="form-control" #telefone="ngModel" [(ngModel)]="contato.telefone" name="telefone"  type="text" matInput placeholder="Ex. (83)998924246" required>
+        </mat-form-field>
+
+        <div *ngIf="telefone.invalid && (telefone.dirty || telefone.touched)" class="alert" >
+          <div *ngIf="telefone.errors?.required" class="alert validation-color ">
+            telefone is required
+          </div>
+        </div>
+
+        <br>
+        <div class="buttons">
+          <button [disabled]="createForm.form.invalid" mat-raised-button type="submit" color="primary">Save</button>
+          <button mat-button [routerLink]="['/']" type="button" color="primary">Back</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

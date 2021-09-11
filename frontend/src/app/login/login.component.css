@@ -1,0 +1,27 @@
+.container{
+  display: flex;
+  justify-content: center;
+
+}
+mat-card{
+  display: flex;
+  width: 30%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.full-width{
+  width: 25rem;
+}

@@ -1,0 +1,50 @@
+<div class="container">
+  <mat-card>
+    <mat-card-title>Perfil</mat-card-title>
+
+    <mat-card-content>
+
+      <form class="form"  #registerForm="ngForm" (ngSubmit)="AtualizarUser()">
+        <mat-form-field class="full-width">
+          <mat-label>Username</mat-label>
+          <input class="form-control" #username="ngModel" [(ngModel)]="user.username" name="username"  type="text" matInput placeholder="Ex. the_dainbow" required>
+        </mat-form-field>
+
+        <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert" >
+          <div *ngIf="username.errors?.required" class="alert validation-color">
+            username is required
+          </div>
+        </div>
+
+        <mat-form-field class="full-width">
+          <mat-label>Email</mat-label>
+          <input class="form-control" #email="ngModel" [(ngModel)]="user.email" name="email"  type="text" matInput placeholder="Ex. example@exemple.com" required>
+        </mat-form-field>
+
+        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert" >
+          <div *ngIf="email.errors?.required" class="alert validation-color ">
+            email is required
+          </div>
+        </div>
+
+        <mat-form-field class="full-width">
+          <mat-label>Password</mat-label>
+          <input class="form-control" #password="ngModel" [(ngModel)]="user.password" name="password" type="password" matInput placeholder="Ex. a587f88afwa" required>
+        </mat-form-field>
+
+        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert" >
+          <div *ngIf="password.errors?.required" class="alert alert validation-color">
+            password is required
+          </div>
+        </div>
+
+        <br>
+        <div class="buttons">
+          <button [disabled]="registerForm.form.invalid" mat-raised-button type="submit" color="primary">Save</button>
+          <button (click)="DeleteUser()" mat-raised-button color="primary">Delete Account</button>
+          <button mat-button [routerLink]="['/']" type="button" color="primary">Back</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
